@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -8,14 +9,14 @@ const passport = require("../passport");
 
 // MONGO setup ===
 // =============================================================
-let MONGODB_URI = process.env.NODE_ENV
-  ? process.env.MONGODB_URI
-  : "mongodb://localhost/seenit_db";
+// let MONGODB_URI = process.env.NODE_ENV
+//   ? process.env.MONGODB_URI
+//   : "mongodb://localhost/seenit_db";
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 // ROUTES - /api
 // =============================================================
@@ -78,11 +79,11 @@ router.put('/posts', (req, res) => {
 // =============================================================
 router.post("/communities", (req, res) => {
   const commData = req.body;
-  console.log(commData);
+  // console.log(commData);
 
   db.Community.create(commData)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       res.status(200).end();
     })
     .catch((err) => {
@@ -95,7 +96,7 @@ router.post("/communities", (req, res) => {
 
 router.post("/post", (req, res) => {
   const postData = req.body;
-  console.log(postData);
+  // console.log(postData);
 
   db.Post.create(postData)
     .then(() => {
@@ -111,7 +112,7 @@ router.post("/post", (req, res) => {
 
 router.post("/users", (req, res) => {
   const userData = req.body;
-  console.log(userData);
+  // console.log(userData);
 
   db.User.create(userData)
     .then((whatHappened) => {

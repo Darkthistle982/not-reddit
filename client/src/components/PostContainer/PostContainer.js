@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
 import Viewminimized from "../Viewminimized";
@@ -22,7 +22,7 @@ function PostContainer(props) {
     setShowMainViewer(false);
   };
   const updateSelectedPost = (postidentifier) => {
-    console.log("your in");
+    // console.log("your in");
     closeViewer();
     setViewminimized(true);
     let newPost = Posts[postidentifier];
